@@ -1,0 +1,24 @@
+<div [ngSwitch]="question.value">
+    <ng-template ngSwitchCase="string">
+
+        <div class="md-form">
+            <input mdbInput [mdbValidate]="true" type="text" id="{{question.key}}" (blur)="onTouched()" (change)="updateValue($event)" class="form-control">
+            <label for="question.key">{{question.key}}</label>
+            <mdb-error *ngIf="isError">Input invalid</mdb-error>
+            <mdb-success *ngIf="isOK">Input valid</mdb-success>
+        </div>
+
+        
+        <!-- <mdb-error *ngIf="onBlur.invalid && (onBlur.dirty || onBlur.touched)">Input invalid</mdb-error> -->
+        <!-- <mdb-success *ngIf="onBlur.valid && (onBlur.dirty || onBlur.touched)">Input valid</mdb-success>   -->
+        
+    </ng-template>
+    <ng-template ngSwitchCase="password">
+        <div class="md-form">
+            <input mdbInput [mdbValidate]="true" type="password" id="{{question.key}}" (blur)="onTouched()" (change)="updateValue($event)" class="form-control">
+            <label for="question.key">{{question.key}}</label>
+            <mdb-error *ngIf="isError">Input invalid</mdb-error>
+            <mdb-success *ngIf="isOK">Input valid</mdb-success>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,11 @@
+<form>
+    <div *ngFor="let question of formDefinition.field_list | keyvalue">
+        <question-component [formControl]="getFormControl(question.key)" [question]="question"></question-component>
+    </div>
+</form>
+
+formModel:
+<pre>
+{{formModel.getRawValue() | json}}
+</pre>
+------------------------------------------
